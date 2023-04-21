@@ -12,7 +12,7 @@ const newEntrada = async (req, res, next) => {
         let newDNI = bcrypt.hashSync(dni, 10);
 
         const newEntrada = new Entrada({
-            url: `http://localhost:3000/entradas/${newDNI}`
+            url: `https://qr-codes-xi.vercel.app/entradas/${newDNI}`
         });
 
         newEntrada.save();
@@ -29,7 +29,7 @@ const getEntrada = async (req, res, next) => {
     try {
 
         const { dni } = req.params;
-        const myEntrada = Entrada.findOne({url: `http://localhost:3000/entradas/${dni}`})
+        const myEntrada = Entrada.findOne({url: `https://qr-codes-xi.vercel.app/entradas/${dni}`})
 
         if (myEntrada) {
             return res.json("puedes pasar")
