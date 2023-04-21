@@ -9,7 +9,7 @@ const newEntrada = async (req, res, next) => {
         const { dni } = req.params;
 
         /* let newDNI = encrypt(dni); */
-        let newDNI = bcrypt.hashSync(dni, 10).replace("/", "");
+        let newDNI = bcrypt.hashSync(dni, 10).replaceAll("/", "");
 
         const newEntrada = new Entrada({
             url: `https://qr-codes-xi.vercel.app/entradas/${newDNI}`
