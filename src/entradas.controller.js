@@ -32,6 +32,7 @@ const getEntrada = async (req, res, next) => {
         const myEntrada = Entrada.findOne({url: `https://qr-codes-xi.vercel.app/entradas/${dni}`})
 
         if (myEntrada.url) {
+            Entrada.findByIdAndDelete(myEntrada._id);
             return res.json("puedes pasar")
         } else {
             return res.json("no puedes pasar")
