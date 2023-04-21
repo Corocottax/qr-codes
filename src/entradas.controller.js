@@ -15,7 +15,7 @@ const newEntrada = async (req, res, next) => {
             url: `https://qr-codes-xi.vercel.app/entradas/${newDNI}`
         });
 
-        newEntrada.save();
+        await newEntrada.save();
 
         return res.json(newEntrada);
 
