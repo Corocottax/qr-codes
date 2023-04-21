@@ -31,7 +31,7 @@ const getEntrada = async (req, res, next) => {
         const { dni } = req.params;
         const myEntrada = await Entrada.findOne({url: `https://qr-codes-xi.vercel.app/entradas/${dni}`})
 
-        if (myEntrada.url) {
+        if (myEntrada) {
             await Entrada.findByIdAndDelete(myEntrada._id);
             return res.json("puedes pasar")
         } else {
