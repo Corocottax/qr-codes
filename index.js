@@ -9,8 +9,6 @@ connectDb();
 
 app.use(cors());
 
-app.use(express.json());
-
 app.use("/entradas", entradasRoutes);
 
 app.listen(3000, () => {
